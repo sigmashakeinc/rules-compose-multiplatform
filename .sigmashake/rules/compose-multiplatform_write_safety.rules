@@ -6,7 +6,7 @@ rule compose-multiplatform-block-unsafe-patterns {
   priority 90
   severity error
   DENY write
-  IF path GLOB "**/*" AND content CONTAINS "UNSAFE_compose-multiplatform_PATTERN"
+  IF path GLOB "**/*" AND content CONTAINS "Modifier.pointerInput"
   MESSAGE "Blocked an unsafe pattern in compose-multiplatform. Use the recommended best practices for 2025/2026."
 }
 
@@ -14,7 +14,7 @@ rule compose-multiplatform-force-updated-api {
   enabled true
   priority 80
   severity warning
-  ASK write
-  IF path GLOB "**/*" AND content CONTAINS "OLD_compose-multiplatform_API"
+  LOG write
+  IF path GLOB "**/*" AND content CONTAINS "DesktopMaterialTheme"
   MESSAGE "You are using an outdated API for compose-multiplatform. Please upgrade to the newer API."
 }
